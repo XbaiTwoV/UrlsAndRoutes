@@ -21154,10 +21154,10 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Xbai\\Desktop\\UrlsAndRoutes1\\UrlsAndRoutes\\UrlsAndRoutes\\UrlsAndRoutes.csproj",
+      "projectUniqueName": "C:\\Users\\Xbai\\Desktop\\UrlsAndRoutes\\UrlsAndRoutes\\UrlsAndRoutes.csproj",
       "projectName": "UrlsAndRoutes",
-      "projectPath": "C:\\Users\\Xbai\\Desktop\\UrlsAndRoutes1\\UrlsAndRoutes\\UrlsAndRoutes\\UrlsAndRoutes.csproj",
-      "outputPath": "C:\\Users\\Xbai\\Desktop\\UrlsAndRoutes1\\UrlsAndRoutes\\UrlsAndRoutes\\obj\\",
+      "projectPath": "C:\\Users\\Xbai\\Desktop\\UrlsAndRoutes\\UrlsAndRoutes\\UrlsAndRoutes.csproj",
+      "outputPath": "C:\\Users\\Xbai\\Desktop\\UrlsAndRoutes\\UrlsAndRoutes\\obj\\",
       "projectStyle": "PackageReference",
       "originalTargetFrameworks": [
         "netcoreapp1.1"

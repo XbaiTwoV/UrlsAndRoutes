@@ -8,6 +8,8 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.AspNetCore.Routing.Constraints;
+using UrlsAndRoutes.Infrastructure;
+using Microsoft.AspNetCore.Routing;
 
 namespace UrlsAndRoutes
 {
@@ -17,6 +19,8 @@ namespace UrlsAndRoutes
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            services.Configure<RouteOptions>(options => options.ConstraintMap.Add("weekday", typeof(WeekDayConstraint)));
+
             services.AddMvc();
         }
 
@@ -26,41 +30,44 @@ namespace UrlsAndRoutes
             app.UseStatusCodePages();
             app.UseDeveloperExceptionPage();
             app.UseStaticFiles();
-            app.UseMvc(routes =>
-            {
 
-                //routes.MapRoute(
-                //    name: "MyRoute",
-                //    template: "{controller=Home}/{action=Index}/{id:int?}");
+            app.UseMvcWithDefaultRoute();
 
-                routes.MapRoute(name: "MyRoute",
-                    template: "{controller=Home}/{action=Index}"
-                            + "/{id:alpha:minlength(6)?}");
+            //app.UseMvc(routes =>
+            //{
 
+            //    //routes.MapRoute(
+            //    //    name: "MyRoute",
+            //    //    template: "{controller=Home}/{action=Index}/{id:int?}");
 
-                ////variable-length route
-                //routes.MapRoute(
-                //    name: "MyRoute",
-                //    template: "{controller=Home}/{action=Index}/{id?}/{*catchall}");
+            //    routes.MapRoute(
+            //        name: "MyRoute",
+            //        template: "{controller=Home}/{action=Index}/{id:weekday?}");
 
 
-                ////an alias for a specific URL
-                //routes.MapRoute(
-                //    name: "ShopSchema2",
-                //    template: "Shop/OldAction",
-                //    defaults: new { controller = "Home", action = "Index" });
+            //    ////variable-length route
+            //    //routes.MapRoute(
+            //    //    name: "MyRoute",
+            //    //    template: "{controller=Home}/{action=Index}/{id?}/{*catchall}");
 
 
-                //routes.MapRoute("", "X{controller}/{action}");
+            //    ////an alias for a specific URL
+            //    //routes.MapRoute(
+            //    //    name: "ShopSchema2",
+            //    //    template: "Shop/OldAction",
+            //    //    defaults: new { controller = "Home", action = "Index" });
 
-                //routes.MapRoute(
-                //    name: "default",
-                //    template: "{controller=Home}/{action=Index}");
 
-                //routes.MapRoute(
-                //    name: "",
-                //    template: "Public/{controller=Home}/{action=Index}");
-            });
+            //    //routes.MapRoute("", "X{controller}/{action}");
+
+            //    //routes.MapRoute(
+            //    //    name: "default",
+            //    //    template: "{controller=Home}/{action=Index}");
+
+            //    //routes.MapRoute(
+            //    //    name: "",
+            //    //    template: "Public/{controller=Home}/{action=Index}");
+            //});
         }
     }
 }

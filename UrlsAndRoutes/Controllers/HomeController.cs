@@ -9,7 +9,7 @@ namespace UrlsAndRoutes.Controllers
 {
     public class HomeController : Controller
     {
-        public ViewResult Index() => View("Result", new Result
+        public ViewResult Index(string name) => View("Result", new Result
         {
             Controller = nameof(HomeController),
             Action = nameof(Index)
@@ -26,7 +26,7 @@ namespace UrlsAndRoutes.Controllers
             r.Data["id"] = id ?? "<no value>";
 
             return View("Result", r);
-        }
+        }        
 
 
     }
